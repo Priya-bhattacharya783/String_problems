@@ -1,28 +1,35 @@
 import java.io.*;
 import java.util.*;
 
-public class Valid_palindrome {
+public class Solution {
 
     public static void main(String[] args) {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
-        Scanner sc=new Scanner(System.in);
+        Scanner sc=new Scanner (System.in);
         String s=sc.nextLine();
-        
-        String s1=s.toLowerCase().replaceAll("[^\\p{Alnum}]","");
-        
-        String s2="";
-        
-        for(int i=s1.length()-1;i>=0;i--)
+        char [] c= s.toCharArray();
+        String ch="";
+        for(int i=0;i<c.length;i++)
         {
-            char ch=s1.charAt(i);
-            s2+=ch;
+            if(Character.isLetterOrDigit(c[i]))
+            {
+                ch=ch+Character.toLowerCase(c[i]);
+                
+            }
         }
-        if(s1.equals(s2))
+        String pa="";
+        for(int i=ch.length()-1; i>=0;i--)
         {
-            System.out.print("true") ;
+           pa=pa+ch.charAt(i); 
+        }
+        if(pa.equals(ch))
+        {
+            System.out.print("YES");
         }
         else{
-            System.out.print("false") ;
+            System.out.print("NO");
         }
+        
+        
     }
 }
