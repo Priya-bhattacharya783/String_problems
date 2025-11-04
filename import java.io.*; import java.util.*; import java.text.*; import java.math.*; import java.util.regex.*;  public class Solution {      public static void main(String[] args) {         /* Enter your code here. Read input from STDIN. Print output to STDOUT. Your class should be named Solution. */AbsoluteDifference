@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        String n=sc.nextLine();
+        String s="";
+        for(int i=n.length()-1;i>=0;i--)
+        {
+            char ch=n.charAt(i);
+            s+=ch;
+            
+        }
+        int k1=Integer.parseInt(s);
+        int k2=Integer.parseInt(n);
+        System.out.println(Math.abs(k1 - k2));
+      
+        
+    }
+}
