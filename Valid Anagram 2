@@ -1,0 +1,43 @@
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+Input: s = "anagram", t = "nagaram"
+
+Output: true
+
+Example 2:
+
+Input: s = "rat", t = "car"
+
+Output: false
+=============================================================================================
+
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length())
+            return false;
+
+        int[] freq = new int[26];
+
+        // count frequency of characters in s
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            freq[c - 'a']++;
+        }
+
+        // reduce frequency using t
+        for (int i = 0; i < t.length(); i++) {
+            char c = t.charAt(i);
+            freq[c - 'a']--;
+        }
+
+        // check if all counts are zero
+        for (int i = 0; i < freq.length; i++) {
+            if (freq[i] != 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
